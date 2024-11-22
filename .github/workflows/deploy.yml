@@ -24,10 +24,11 @@ jobs:
 
     - name: Convert Notebook to HTML
       run: |
-        jupyter nbconvert --to html ../blackScholes.ipynb
+        jupyter nbconvert --to html blackScholes.ipynb
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./ # Path where your HTML file is generated
+        destination_dir: public_html # Optional: Specify a subdirectory on Pages
